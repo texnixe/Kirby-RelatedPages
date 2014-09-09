@@ -3,9 +3,9 @@
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
 /**
- * RelatedPages plugin for Kirby CMS
+ * RelatedPages plugin for Kirby CMS Version 1
  *
- * The RelatedPages plugin provides an easy, yet flexible way of 
+ * The RelatedPages plugin provides an easy, but flexible way of 
  * incorporating links (or other data) of related pages to the
  * current page. The relationsship is considered by keywords in an
  * arbitrary field of the content file.
