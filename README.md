@@ -35,19 +35,22 @@ foreach ($MyRelatedPages->Pages() as $UID => $Page) {
 
 You can control which pages are searched for and which pages are found by a number of options, which should be supplied as an associative array upon instantiation of a new object:
 
-`<?php $MyRelatedPages = new RelatedPages($Options); ?>`
-
-Example: `$Options = array('VisibleOnly' => false,'Depth' => 1);`
+```php
+<?php
+$Options = array('VisibleOnly' => false,'Depth' => 1);
+$MyRelatedPages = new RelatedPages($Options);
+?>
+```
 
 This will find all pages, not only visible pages, and the depth of recursion is 1, which means 1 level down the page hierachy starting at the root level.
 
 #### Possible options
 
-| Key           | Value   | Default | Description |
-|---------------|---------|---------|-------------|
-| 'VisibleOnly' | Bool    | true    | If true, searches only visible pages, otherwise all. |
-| 'StartURI'    | String  | ''      | Start folder of search. If blank, starts at the root level. Use only folder names without numbers. No trailing slash. Example: '/folder/subfolder' |
-| 'Depth'       | Integer | 0       | Depth of recursion into the folder structure. 0 means infinitely. Count starts at StartURI level, this means it is relative to the root level. |
-| 'Field'       | String  | 'Tags'  | The name of the field in your content file which holds the keywords. |
-| 'Items'       | Array   | array() | A list of keywords which should be searched for. An empty array means that all keywords which are found in the 'Field' will be searched for. |
+| Key         | Value   | Default | Description |
+|-------------|---------|---------|-------------|
+| VisibleOnly | Bool    | true    | If true, searches only visible pages, otherwise all. |
+| StartURI    | String  | ''      | Start folder of search. If blank, starts at the root level. Use only folder names without numbers. No trailing slash. Example: '/folder/subfolder' |
+| Depth       | Integer | 0       | Depth of recursion into the folder structure. 0 means infinitely. Count starts at StartURI level, this means it is relative to the root level. |
+| Field       | String  | 'Tags'  | The name of the field in your content file which holds the keywords. |
+| Items       | Array   | array() | A list of keywords which should be searched for. An empty array means that all keywords which are found in the 'Field' will be searched for. |
 
