@@ -7,7 +7,9 @@ The RelatedPages plugin provides an easy, but flexible way of incorporating link
 
 ### Installation
 
-Save this file into the plugins folder of Kirby.
+Kirby 1: Save the file `RelatedPages.php.V1` as `RelatedPages.php` into the plugins folder of Kirby 1.
+
+Kirby 2: Save the file `RelatedPages.php.V2` as `RelatedPages.php` into the plugins folder of Kirby 2.
 
 ### Basic usage
 
