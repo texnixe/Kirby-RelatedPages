@@ -1,18 +1,15 @@
 Kirby-RelatedPages
 ==================
 
-# RelatedPages Plugin for Kirby CMS
+## RelatedPages Plugin for Kirby CMS
 
-The RelatedPages plugin provides an easy, but flexible way of 
-incorporating links (or other data) of related pages to the
-current page. The relationsship is considered by keywords in an
-arbitrary field of the content file.
+The RelatedPages plugin provides an easy, but flexible way of incorporating links (or other data) of related pages to the current page. The relationsship is considered by keywords in an arbitrary field of the content files. Example: If you provide the field 'Tags' in your content file which is rendered together with the RelatedPages plugin, all pages in your site will be searched for any of the *tags* (seperated by comma) in the field 'Tags'.
 
-## Installation
+### Installation
 
 Save this file into the plugins folder of Kirby.
 
-## Basic usage
+### Basic usage
 
 ```php
 <?php
@@ -24,41 +21,33 @@ foreach ($MyRelatedPages->Pages() as $UID => $Page) {
 ?>
 ```
 
-## Methods
+### Methods
 
-- `$MyRelatedPages->Pages()` outputs an array with all related pages. The key
-of the array is the uid of the related page and the value is the kirby page
-object.
+- `$MyRelatedPages->Pages()` outputs an array with all related pages. The key of the array is the uid of the related page and the value is the kirby page object.
 
-- `$MyRelatedPages->Count()` outputs an integer with the number of related
-pages found.
+- `$MyRelatedPages->Count()` outputs an integer with the number of related pages found.
 
-- `$MyRelatedPages->Options()` outputs the options array (see next) in a
-readable way.
+- `$MyRelatedPages->Options()` outputs the options array (see next) in a readable way.
 
-**Note**: If you use the object as string, you will get an array of uids of
-the pages found in a readable way. Example: `<?php echo $MyRelatedPages ?>`
+**Note**: If you use the object as string, you will get an array of uids of the pages found in a readable way. Example: `<?php echo $MyRelatedPages ?>`
 
-## Options
+### Options
 
-You can control which pages are searched for and which pages are found by
-a number of options, which should be supplied as an associative array upon
-instantiation of a new object:
+You can control which pages are searched for and which pages are found by a number of options, which should be supplied as an associative array upon instantiation of a new object:
 
 `<?php $MyRelatedPages = new RelatedPages($Options); ?>`
 
 Example: `$Options = array('VisibleOnly' => false,'Depth' => 1);`
 
-This will find all pages, not only visible pages, and the depth of recursion
-is 1, which means 1 level down the page hyrachie starting at the root level.
+This will find all pages, not only visible pages, and the depth of recursion is 1, which means 1 level down the page hierachy starting at the root level.
 
-### Possible options (with defaults values in parenthesis)
+#### Possible options
 
-| Key           | Default   | Description |
-|---------------|-----------|-------------|
-| 'VisibleOnly' | (true)    | If true, searches only visible pages, otherwise all. |
-| 'StartURI'    | ('')      | Start folder of search. If blank, starts at the root level. Use only folder names without numbers. No trailing slash. Example: '/folder/subfolder' |
-| 'Depth'       | (0)       | Depth of recursion into the folder structure. 0 means infinitely. Count starts at StartURI level, this means it is relative to the root level. |
-| 'Field'       | ('Tags')  | The name of the field in your content file which holds the keywords. |
-| 'Items'       | (array()) | A list of keywords which should be searched for. An empty array means that all keywords will be searched for. |
+| Key           | Value   | Default | Description |
+|---------------|---------|---------|-------------|
+| 'VisibleOnly' | Bool    | true    | If true, searches only visible pages, otherwise all. |
+| 'StartURI'    | String  | ''      | Start folder of search. If blank, starts at the root level. Use only folder names without numbers. No trailing slash. Example: '/folder/subfolder' |
+| 'Depth'       | Integer | 0       | Depth of recursion into the folder structure. 0 means infinitely. Count starts at StartURI level, this means it is relative to the root level. |
+| 'Field'       | String  | 'Tags'  | The name of the field in your content file which holds the keywords. |
+| 'Items'       | Array   | array() | A list of keywords which should be searched for. An empty array means that all keywords which are found in the 'Field' will be searched for. |
 
